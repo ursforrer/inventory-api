@@ -60,4 +60,12 @@ functions.deleteRoom = function (id, callback) {
     });
 };
 
+functions.addRoom = function (newRoom, callback) {
+    Room.create(newRoom).then(() => {
+        callback("OK");
+    }).catch(error => {
+        callback(error);
+    });
+};
+
 module.exports = functions;

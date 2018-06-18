@@ -27,4 +27,10 @@ functions.createLocation = function (req, res) {
   })
 };
 
+functions.getLocationById = function (req, res) {
+  LocationRepository.getLocationById(req.params.id, function (callback) {
+      res.status(200).send(callback);
+  });
+};
+
 module.exports = functions;

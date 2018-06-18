@@ -11,7 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
         notNull: false,
       defaultValue: true
-    }
+    },
+      locationId: {
+          type: DataTypes.INTEGER,
+          allowNull: false
+      }
   }, {});
   Room.associate = function(models) {
     // associations can be defined here
