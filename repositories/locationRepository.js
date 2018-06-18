@@ -1,7 +1,7 @@
 const Location = require('../models').Location;
 const functions = {};
 
-functions.getAllLocations = function (callback {
+functions.getAllLocations = function (callback) {
     Location.all().then(locations => {
         callback(locations);
     }).catch(error => {
@@ -12,6 +12,14 @@ functions.getAllLocations = function (callback {
 functions.getLocationById = function (id, callback) {
   Location.findById(id).then(location => {
       callback(location);
+  }).catch(error => {
+      callback(error);
+  });
+};
+
+functions.addLocation = function (newLocation, callback) {
+  Location.create(newLocation).then(() => {
+      callback("OK");
   }).catch(error => {
       callback(error);
   });
@@ -50,3 +58,5 @@ functions.deleteLocation = function (id, callback) {
      callback(error);
   });
 };
+
+module.exports = functions;
